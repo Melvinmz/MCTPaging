@@ -28,7 +28,7 @@ namespace MCTPaging.Pages
 
         public void OnGet(int PageNum = 1)
         {
-            Employees = _db.Employee.ToList<Employee>();
+            Employees = _db.Employee.OrderBy(m => m.EmpId).ToList<Employee>();
             StringBuilder QParam = new StringBuilder();
             if (PageNum!=0)
             {
