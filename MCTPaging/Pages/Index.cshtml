@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@using MCTPaging.Model
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <table class="table table-dark">
+
+
+        <tr>
+            <th>ID</th>
+            <th>First Name </th>
+            <th>Last Name </th>
+            <th>Email </th>
+        </tr>
+
+        <tbody>
+            @{
+
+                @foreach (Employee employee in Model.Employees)
+                {
+
+                    <tr>
+                        <td>
+                            @employee.EmpId
+                        </td>
+                        <td>
+                            @employee.FirstName
+                        </td>
+                        <td>
+                            @employee.LastName
+                        </td>
+                        <td>
+                            @employee.Email
+                        </td>
+                    </tr>
+
+                }
+            }
+
+
+        </tbody>
+    </table>
+    <div paging-model="@Model.PagingData"   page-class="btn border mt-3"
+         page-class-links="text-center" page-class-normal="btn btn-light" page-class-selected="btn btn-dark  active" page-class-label="p-2 font-weight-bold  pt-md-2  text-center" class="text-center">
+    </div>
+</div>
